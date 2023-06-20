@@ -3,3 +3,12 @@ get http://localhost:3000/api/todos
 
 ### get todo by id
 get http://localhost:3000/api/todos/1
+
+### sign up
+post http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
