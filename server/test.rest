@@ -1,0 +1,5 @@
+### get all todos
+get http://localhost:3000/api/todos
+
+### get todo by id
+get http://localhost:3000/api/todos/1
