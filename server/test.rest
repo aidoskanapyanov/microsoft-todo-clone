@@ -12,3 +12,12 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
 }
+
+### sign in
+post http://localhost:3000/signin
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
