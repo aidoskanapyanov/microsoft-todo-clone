@@ -20,3 +20,24 @@ export const signUp = async (req, res) => {
     }
   }
 };
+
+export const signIn = async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const user = await prisma.user.findUnique({
+      where: { username },
+    });
+    if (!user) {
+      res.status(400).json({ error: "Invalid username or password" });
+      return;
+    }
+    const passwordMatch = bcrypt.compareSync(password, user.passwordHash);
+    if (!passwordMatch) {
+      res.status(400).json({ error: "Invalid username or password" });
+      return;
+    }
+    res.status(200).json({ data: { userId: user.id, username } });
+  } catch (e) {
+    console.log(e);
+  }
+};
