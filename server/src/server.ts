@@ -1,6 +1,7 @@
 import cors from "cors"; // library for cross-origin resource sharing
 import express from "express";
 import morgan from "morgan"; // library for logging http requests
+import router from "./router";
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(express.urlencoded({ extended: true })); // parse urlencoded bodies (con
 app.get("/", (req, res, next) => {
   res.json({ message: "hi from server" });
 });
+
+app.use("/api", router);
 
 app.use((err, req, res, next) => {
   console.log(err);
