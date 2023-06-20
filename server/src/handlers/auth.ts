@@ -61,3 +61,42 @@ export const signIn = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+import jwt from "jsonwebtoken";
+
+export const refreshAccessToken = async (req, res) => {
+  const { refreshToken } = req.cookies;
+
+  // if no refresh token, send 401 unauthorized
+  if (!refreshToken) {
+    res.status(401).json({ error: "Unauthorized" });
+    return;
+  }
+  try {
+    const { userId, username } = jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET
+    );
+
+    const user = await prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    // if user doesn't exist, send 401 unauthorized
+    if (!user) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+
+    const { accessToken } = createJwtTokens(user, username);
+
+    res.json({ accessToken });
+  } catch (e) {
+    // if refresh token is expired, send 401 unauthorized
+    if (e instanceof jwt.TokenExpiredError) {
+      res.status(401).json({ error: "Refresh token expired. Sign in again" });
+      return;
+    }
+    res.status(401).json({ error: "Unauthorized" });
+  }
+};

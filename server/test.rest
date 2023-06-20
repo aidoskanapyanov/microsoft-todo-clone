@@ -21,3 +21,6 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
 }
+
+### refresh token
+post http://localhost:3000/refresh_token
