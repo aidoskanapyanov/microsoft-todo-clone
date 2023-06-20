@@ -1,26 +1,16 @@
-let todos = [
-  {
-    id: 1,
-    title: "Todo 1",
-    description: "Description 1",
-    completed: false,
-  },
-  {
-    id: 2,
-    title: "Todo 2",
-    description: "Description 2",
-    completed: false,
-  },
-];
+import prisma from "../db";
 
 // Get all
 export const getTodos = async (req, res) => {
+  const todos = await prisma.todo.findMany();
   res.json({ data: todos });
 };
 
 // Get one
 export const getTodo = async (req, res) => {
   const { id } = req.params;
-  const todo = todos.find((todo) => todo.id === Number(id));
+  const todo = await prisma.todo.findUnique({
+    where: { id: Number(id) },
+  });
   res.json({ data: todo });
 };
