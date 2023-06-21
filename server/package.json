@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predev": "npx prisma generate",
+    "postinstall": "prisma generate",
     "dev": "tsnd --respawn src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
