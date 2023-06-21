@@ -1,8 +1,10 @@
 ### get all todos
 get http://localhost:3000/api/todos
+# Authorization: Bearer <accessToken>
 
 ### get todo by id
-get http://localhost:3000/api/todos/1
+get http://localhost:3000/api/todos/4
+# Authorization: Bearer <accessToken>
 
 ### sign up
 post http://localhost:3000/signup
