@@ -1,0 +1,15 @@
+{
+  "name": "todo-auth-express-react",
+  "version": "1.0.0",
+  "description": "Todo app with authentication using Express and React",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "pnpm --stream -r dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
