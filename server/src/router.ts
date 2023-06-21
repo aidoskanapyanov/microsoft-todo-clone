@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { getTodo, getTodos } from "./handlers/todos";
+import { readOneTodo, readAllTodos } from "./handlers/todos";
 
 const router = Router();
 
 /**
  * Todo
  */
-router.get("/todos", getTodos); // get all
-router.get("/todos/:id", getTodo); // get one
+router.get("/todos", readAllTodos); // read all
+router.get("/todos/:id", readOneTodo); // read one
 
 export default router;

@@ -1,16 +1,26 @@
 import prisma from "../db";
 
-// Get all
-export const getTodos = async (req, res) => {
-  const todos = await prisma.todo.findMany();
+// Read all
+export const readAllTodos = async (req, res) => {
+  const userId = req.user.userId;
+
+  const todos = await prisma.todo.findMany({
+    where: { userId },
+  });
+
   res.json({ data: todos });
 };
 
-// Get one
-export const getTodo = async (req, res) => {
+// Read one
+export const readOneTodo = async (req, res) => {
   const { id } = req.params;
-  const todo = await prisma.todo.findUnique({
-    where: { id: Number(id) },
+  const userId = req.user.userId;
+
+  const todo = await prisma.todo.findFirst({
+    where: {
+      AND: [{ id: Number(id) }, { userId }],
+    },
   });
+
   res.json({ data: todo });
 };
