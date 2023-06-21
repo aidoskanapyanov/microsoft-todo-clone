@@ -3,7 +3,9 @@ import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
-      <div>Hello world!</div>
+      <div className="h-screen flex justify-center items-center text-7xl italic tracking-widest font-thin">
+        Hello world!
+      </div>
     </BrowserRouter>
   );
 }

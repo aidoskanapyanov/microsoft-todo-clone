@@ -17,7 +17,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0",
     "tailwind-merge": "^1.13.2",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "vite-tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
