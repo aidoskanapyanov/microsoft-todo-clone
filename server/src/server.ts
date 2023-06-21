@@ -1,9 +1,10 @@
+import cookieParser from "cookie-parser"; // library for parsing cookies
 import cors from "cors"; // library for cross-origin resource sharing
 import express from "express";
 import morgan from "morgan"; // library for logging http requests
-import { refreshAccessToken, signIn, signUp } from "./handlers/auth";
+import { refreshAccessToken, signIn, signUp } from "./handlers/auth"; // handlers for authentication routes
+import authenticateJWT from "./middlewares/jwtAuthMiddleware"; // middleware for authenticating jwt tokens
 import router from "./router";
-import cookieParser from "cookie-parser";
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.get("/", (req, res, next) => {
   res.json({ message: "hi from server" });
 });
 
-app.use("/api", router);
+app.use("/api", authenticateJWT, router);
 
 app.post("/signup", signUp);
 app.post("/signin", signIn);
