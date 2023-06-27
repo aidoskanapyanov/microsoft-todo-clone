@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
-dotenv.config(); // load .env file
+dotenv.config({ path: ".env" }); // override with .env file if present
+dotenv.config({ path: ".env.example" }); // load .env.example file for default values
 
 import app from "./server";
 
