@@ -7,7 +7,7 @@
     "server"
   ],
   "scripts": {
-    "dev": "pnpm --stream -r dev"
+    "dev": "turbo run dev"
   },
   "keywords": [],
   "author": "",
