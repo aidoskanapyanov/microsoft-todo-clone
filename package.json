@@ -7,7 +7,9 @@
     "server"
   ],
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "db:generate": "turbo db:generate",
+    "db:push": "turbo db:push db:generate"
   },
   "keywords": [],
   "author": "",
