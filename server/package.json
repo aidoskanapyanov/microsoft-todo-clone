@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npx prisma generate",
-    "dev": "tsnd --respawn src/index.ts",
+    "db:generate": "pnpm with-env prisma generate",
+    "db:push": "pnpm with-env prisma db push --skip-generate",
+    "dev": "pnpm with-env tsnd --respawn src/index.ts",
+    "with-env": "dotenv -e ../.env --",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,6 +26,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.3.1",
+    "dotenv-cli": "^7.2.1",
     "prisma": "^4.15.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.3"
