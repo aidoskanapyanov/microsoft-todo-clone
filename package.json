@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Todo app with authentication using Express and React",
   "workspaces": [
-    "client",
-    "server"
+    "frontend",
+    "backend"
   ],
   "scripts": {
     "dev": "turbo run dev",
