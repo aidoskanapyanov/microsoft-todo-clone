@@ -16,7 +16,7 @@ pnpm install
 cp .env.example .env
 ```
 
-3. Spin up a local database using Docker:
+3. Spin up a local database using Docker, and wait until it's ready (this may take a minute):
 
 ```sh
 docker-compose -f docker-compose-dev.yaml up -d
