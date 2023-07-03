@@ -7,10 +7,5 @@ interface Props {
 }
 
 export const SidebarMain = ({ children, className }: Props) => {
-  return (
-    <div className={cn("hidden sm:block", className)}>
-      <h1>SidebarMain</h1>
-      {children}
-    </div>
-  );
+  return <div className={cn("hidden sm:block", className)}>{children}</div>;
 };

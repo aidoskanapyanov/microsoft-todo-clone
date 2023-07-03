@@ -79,7 +79,7 @@ function Tasks() {
 
 function Layout() {
   return (
-    <div className="p-4 sm:flex">
+    <div className="p-4 sm:flex sm:gap-8">
       <SidebarMain className="sm:basis-1/5">
         <CategoryList />
       </SidebarMain>
