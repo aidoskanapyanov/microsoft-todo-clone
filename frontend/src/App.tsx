@@ -21,39 +21,6 @@ function App() {
   );
 }
 
-const data = [
-  {
-    title: "My Day",
-    icon: <span>📅</span>,
-    to: "/",
-  },
-  {
-    title: "Important",
-    icon: <span>⭐</span>,
-    to: "/important",
-  },
-  {
-    title: "Planned",
-    icon: <span>📌</span>,
-    to: "/planned",
-  },
-  {
-    title: "All",
-    icon: <span>📝</span>,
-    to: "/all",
-  },
-  {
-    title: "Completed",
-    icon: <span>✅</span>,
-    to: "/completed",
-  },
-  {
-    title: "Tasks",
-    icon: <span>📋</span>,
-    to: "/tasks",
-  },
-];
-
 function MyDay() {
   return (
     <div>
@@ -112,8 +79,8 @@ function Tasks() {
 
 function Layout() {
   return (
-    <div className="p-4">
-      <SidebarMain>
+    <div className="p-4 sm:flex">
+      <SidebarMain className="sm:basis-1/5">
         <CategoryList />
       </SidebarMain>
       <SidebarMobile>

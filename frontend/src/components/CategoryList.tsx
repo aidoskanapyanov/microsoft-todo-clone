@@ -1,5 +1,7 @@
 import { useContext, useState } from "react";
 import { Category, SidebarContext } from ".";
+import { useLocation } from "react-router-dom";
+
 const data = [
   {
     title: "My Day",
@@ -34,7 +36,10 @@ const data = [
 ];
 
 export const CategoryList = () => {
-  const [active, setActive] = useState("My Day");
+  const location = useLocation();
+  const [active, setActive] = useState(
+    data.find((item) => item.to === location.pathname)?.title || "My Day"
+  );
   const { setIsOpen } = useContext(SidebarContext);
 
   const onClick = (title: string) => {
