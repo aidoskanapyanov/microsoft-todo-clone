@@ -24,20 +24,30 @@ function useCloseOnOutsideTouch(ref: any, setIsOpen: any) {
   }, [ref, setIsOpen]);
 }
 
-function SidebarToggle(props) {
+type SidebarToggleProps = {
+  setIsOpen: (state: boolean) => void;
+  open?: boolean;
+};
+
+function SidebarToggle({ setIsOpen, open }: SidebarToggleProps) {
   return (
     <button
       className="border-2 p-2 rounded-lg  block"
-      onClick={() => props.setIsOpen(props.open ? true : false)}
+      onClick={() => setIsOpen(open ? true : false)}
     >
-      {props.open ? "open" : "close"}
+      {open ? "open" : "close"}
     </button>
   );
 }
 
-export const SidebarContext = React.createContext({
+type SidebarContextType = {
+  isOpen: boolean;
+  setIsOpen: (state: boolean) => void;
+};
+
+export const SidebarContext = React.createContext<SidebarContextType>({
   isOpen: false,
-  setIsOpen: (state) => {},
+  setIsOpen: () => null,
 });
 
 export const SidebarMobile = ({ children }: Props) => {
