@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { CategoryList, SidebarMain } from "./components";
-import { SidebarMobile } from "./components/SidebarMobile";
+import { CategoryList, SidebarMain, SidebarMobile } from "./components";
+import { Completed, Important, MyDay, NoMatch, Planned, Tasks } from "./pages";
 
 function App() {
   return (
@@ -18,30 +18,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
-}
-
-function MyDay() {
-  return (
-    <div>
-      <h1>MyDay</h1>
-    </div>
-  );
-}
-
-function Important() {
-  return (
-    <div>
-      <h1>Important</h1>
-    </div>
-  );
-}
-
-function Planned() {
-  return (
-    <div>
-      <h1>Planned</h1>
-    </div>
   );
 }
 
@@ -72,30 +48,6 @@ function All() {
           {data && data.map((item: any) => <li key={item.id}>{item.title}</li>)}
         </ul>
       }
-    </div>
-  );
-}
-
-function NoMatch() {
-  return (
-    <div>
-      <h1>NoMatch</h1>
-    </div>
-  );
-}
-
-function Completed() {
-  return (
-    <div>
-      <h1>Completed</h1>
-    </div>
-  );
-}
-
-function Tasks() {
-  return (
-    <div>
-      <h1>Tasks</h1>
     </div>
   );
 }
