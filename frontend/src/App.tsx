@@ -1,7 +1,7 @@
-import { BrowserRouter } from "react-router-dom";
-import { SidebarMobile } from "./components/SidebarMobile";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { CategoryList, SidebarMain } from "./components";
-import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { SidebarMobile } from "./components/SidebarMobile";
 
 function App() {
   return (
@@ -46,9 +46,32 @@ function Planned() {
 }
 
 function All() {
+  const [data, setData] = useState([]);
+  const accessToken = "token";
+
+  const getData = async () => {
+    const res = await fetch("http://localhost:3000/api/todos", {
+      headers: {
+        method: "GET",
+        Authorization: "Bearer " + accessToken,
+      },
+    });
+    const json = await res.json();
+    setData(json.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div>
       <h1>All</h1>
+      {
+        <ul>
+          {data && data.map((item: any) => <li key={item.id}>{item.title}</li>)}
+        </ul>
+      }
     </div>
   );
 }
