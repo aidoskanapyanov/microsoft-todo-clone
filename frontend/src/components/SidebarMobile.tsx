@@ -51,7 +51,7 @@ export const SidebarMobile = ({ children }: Props) => {
         <SidebarToggle setIsOpen={setIsOpen} open={true}></SidebarToggle>
         <div
           className={cn(
-            "bg-sidebar text-sidebar-foreground w-60 absolute inset-0 p-4 transition ease-in-out duration-200",
+            "bg-sidebar text-sidebar-foreground h-[100dvh] w-60 absolute inset-0 p-4 transition ease-in-out duration-200",
             isOpen ? "transform translate-x-0" : "transform -translate-x-full"
           )}
           ref={wrapperRef}
