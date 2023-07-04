@@ -21,8 +21,8 @@ function App() {
           <Route path="all" element={<All />} />
           <Route path="completed" element={<Completed />} />
           <Route path="tasks" element={<Tasks />} />
-          <Route path="*" element={<NoMatch />} />
         </Route>
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>
   );
