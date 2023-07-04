@@ -1,7 +1,14 @@
-import { useEffect, useState } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { CategoryList, SidebarMain, SidebarMobile } from "./components";
-import { Completed, Important, MyDay, NoMatch, Planned, Tasks } from "./pages";
+import {
+  All,
+  Completed,
+  Important,
+  MyDay,
+  NoMatch,
+  Planned,
+  Tasks,
+} from "./pages";
 
 function App() {
   return (
@@ -18,37 +25,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
-}
-
-function All() {
-  const [data, setData] = useState([]);
-  const accessToken = "token";
-
-  const getData = async () => {
-    const res = await fetch("http://localhost:3000/api/todos", {
-      headers: {
-        method: "GET",
-        Authorization: "Bearer " + accessToken,
-      },
-    });
-    const json = await res.json();
-    setData(json.data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  return (
-    <div>
-      <h1>All</h1>
-      {
-        <ul>
-          {data && data.map((item: any) => <li key={item.id}>{item.title}</li>)}
-        </ul>
-      }
-    </div>
   );
 }
 
