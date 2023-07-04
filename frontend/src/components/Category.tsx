@@ -15,8 +15,8 @@ export const Category = ({ title, icon, active, onClick, to }: Props) => {
     <Link to={to}>
       <div
         className={cn(
-          "flex flex-row-reverse items-center justify-end gap-2 hover:bg-pink-400 active:scale-95",
-          active === title && "bg-pink-900 hover:bg-pink-900"
+          "flex flex-row-reverse items-center justify-end gap-2 hover:bg-active active:scale-95",
+          active === title && "bg-active hover:bg-active"
         )}
         onClick={() => onClick(title)}
       >

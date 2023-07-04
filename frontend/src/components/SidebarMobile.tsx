@@ -27,7 +27,7 @@ function useCloseOnOutsideTouch(ref: any, setIsOpen: any) {
 function SidebarToggle(props) {
   return (
     <button
-      className="border-2 p-2 rounded-lg mb-4 block"
+      className="border-2 p-2 rounded-lg  block"
       onClick={() => props.setIsOpen(props.open ? true : false)}
     >
       {props.open ? "open" : "close"}
@@ -47,11 +47,11 @@ export const SidebarMobile = ({ children }: Props) => {
 
   return (
     <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
-      <div className="block sm:hidden">
+      <div className="pt-4 pl-4 block sm:hidden">
         <SidebarToggle setIsOpen={setIsOpen} open={true}></SidebarToggle>
         <div
           className={cn(
-            "bg-slate-600 w-60 absolute inset-0 p-4 transition ease-in-out duration-200",
+            "bg-sidebar text-sidebar-foreground w-60 absolute inset-0 p-4 transition ease-in-out duration-200",
             isOpen ? "transform translate-x-0" : "transform -translate-x-full"
           )}
           ref={wrapperRef}

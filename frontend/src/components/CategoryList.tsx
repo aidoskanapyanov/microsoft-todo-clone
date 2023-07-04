@@ -48,7 +48,7 @@ export const CategoryList = () => {
   };
 
   return (
-    <ul className="flex flex-col items-stretch justify-center gap-1">
+    <ul className="flex flex-col items-stretch justify-center gap-1 mt-4 sm:mt-auto">
       {data.map((item) => {
         return (
           <Category

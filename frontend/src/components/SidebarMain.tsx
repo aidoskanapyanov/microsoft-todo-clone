@@ -7,5 +7,14 @@ interface Props {
 }
 
 export const SidebarMain = ({ children, className }: Props) => {
-  return <div className={cn("hidden sm:block", className)}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "bg-sidebar text-sidebar-foreground h-screen hidden sm:block",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 };
