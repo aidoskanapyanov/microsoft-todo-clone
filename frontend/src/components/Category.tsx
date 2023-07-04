@@ -12,16 +12,23 @@ interface Props {
 
 export const Category = ({ title, icon, active, onClick, to }: Props) => {
   return (
-    <Link to={to}>
+    <Link to={to} onClick={() => onClick(title)}>
       <div
         className={cn(
-          "flex flex-row-reverse items-center justify-end gap-2 hover:bg-active active:scale-95",
+          "pr-4 py-2 rounded-sm hover:bg-active",
           active === title && "bg-active hover:bg-active"
         )}
-        onClick={() => onClick(title)}
       >
-        <h1>{title}</h1>
-        <div>{icon}</div>
+        <div className="flex flex-row-reverse items-center justify-end gap-2 active:scale-95">
+          <h1 className="font-medium">{title}</h1>
+          <div>{icon}</div>
+          <div
+            className={cn(
+              "w-1 h-5 rounded-full",
+              active === title && "bg-cyan-50"
+            )}
+          ></div>
+        </div>
       </div>
     </Link>
   );

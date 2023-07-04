@@ -80,7 +80,7 @@ function Tasks() {
 function Layout() {
   return (
     <div className="sm:flex sm:gap-8">
-      <SidebarMain className="p-4 sm:basis-1/5">
+      <SidebarMain className="py-4 px-2 sm:basis-1/5">
         <CategoryList />
       </SidebarMain>
       <SidebarMobile>
