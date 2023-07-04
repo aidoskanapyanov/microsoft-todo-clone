@@ -6,6 +6,7 @@
   "scripts": {
     "db:generate": "pnpm with-env prisma generate",
     "db:push": "pnpm with-env prisma db push --skip-generate",
+    "db:studio": "pnpm with-env prisma studio",
     "dev": "pnpm with-env tsnd --respawn src/index.ts",
     "with-env": "dotenv -e ../.env --",
     "test": "echo \"Error: no test specified\" && exit 1"
