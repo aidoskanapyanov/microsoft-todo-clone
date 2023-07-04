@@ -1,5 +1,4 @@
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { CategoryList, SidebarMain, SidebarMobile } from "./components";
+import { MainLayout } from "@/layouts";
 import {
   All,
   Completed,
@@ -8,13 +7,14 @@ import {
   NoMatch,
   Planned,
   Tasks,
-} from "./pages";
+} from "@/pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<MyDay />} />
           <Route path="important" element={<Important />} />
           <Route path="planned" element={<Planned />} />
@@ -28,19 +28,4 @@ function App() {
   );
 }
 
-function Layout() {
-  return (
-    <div className="sm:flex sm:gap-8">
-      <SidebarMain className="py-4 px-2 sm:basis-1/5">
-        <CategoryList />
-      </SidebarMain>
-      <SidebarMobile>
-        <CategoryList />
-      </SidebarMobile>
-      <div className="p-4">
-        <Outlet />
-      </div>
-    </div>
-  );
-}
 export default App;
