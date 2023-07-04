@@ -15,11 +15,11 @@ export const Category = ({ title, icon, active, onClick, to }: Props) => {
     <Link to={to} onClick={() => onClick(title)}>
       <div
         className={cn(
-          "pr-4 py-2 rounded-sm hover:bg-active",
+          "rounded-sm hover:bg-active",
           active === title && "bg-active hover:bg-active"
         )}
       >
-        <div className="flex flex-row-reverse items-center justify-end gap-2 active:scale-95">
+        <div className="pr-4 py-2 flex flex-row-reverse items-center justify-end gap-2 transition-all ease-in duration-100 active:scale-95">
           <h1 className="font-medium">{title}</h1>
           <div>{icon}</div>
           <div
