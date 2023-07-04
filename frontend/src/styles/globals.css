@@ -11,6 +11,8 @@
     --sidebar-foreground: 0, 0%, 16%;
 
     --active: 300, 35%, 74%;
+
+    --radius: 0.5rem;
   }
 }
 
