@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 177, 45%, 37%;
+    --foreground: 0, 0%, 16%;
+
+    --sidebar: 300, 37%, 84%;
+    --sidebar-foreground: 0, 0%, 16%;
+
+    --active: 300, 35%, 74%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
